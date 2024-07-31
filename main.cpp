@@ -4,6 +4,7 @@ using namespace std;
 void test01(Solution& test);
 void test10(Solution& test);
 void test11(Solution& test);
+void test12(Solution& test);
 int main() {
     Solution test;
     // vector<int> nums = {7,1,5,3,6,4};
@@ -15,6 +16,7 @@ int main() {
     test01(test);
     test10(test);
     test11(test);
+    test12(test);
     //system("pause");
     return 0;
 }
@@ -32,4 +34,12 @@ void test10(Solution& test) {
 void test11(Solution& test) {
     vector<int> nums={3,0,6,1,5};
     cout << test.hIndex(nums) << endl;
+}
+
+void test12(Solution& test) {
+    vector<int> nums={1,2,3,4};
+    vector<int> answer = test.productExceptSelf(nums);
+    for_each(answer.begin(),answer.end(),[](int element) {
+        cout << element << endl;
+    });
 }

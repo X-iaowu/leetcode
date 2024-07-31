@@ -153,3 +153,17 @@ int Solution::hIndex(vector<int> &citations) {
     return h;
 }
 
+vector<int> Solution::productExceptSelf(vector<int> &nums) {
+    vector<int> temp1(nums.size(),1);
+    vector<int> temp2(nums.size(),1);
+    for(int i = 0;i < nums.size();i++) {
+        temp1[i] *= nums[i];
+        temp2[nums.size() - i - 1] *= nums[nums.size() - 1 - i];
+    }
+
+    vector<int> answer(nums.size(),1);
+    for(int i = 1;i < nums.size();i++) {
+        answer[i] = temp1[i - 1] * temp2[nums.size() - i - 2];
+    }
+    return answer;
+}

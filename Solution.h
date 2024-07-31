@@ -20,6 +20,7 @@ public:
     bool canJump(vector<int>& nums);
     int jump(vector<int>& nums);
     int hIndex(vector<int>& citations);
+    vector<int> productExceptSelf(vector<int>& nums);
 };
 
 
