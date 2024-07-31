@@ -17,6 +17,9 @@ public:
     void rotate(vector<int>& nums,int k);
     int maxProfit(vector<int>& prices);
     int maxprofit2(vector<int>& prices);
+    bool canJump(vector<int>& nums);
+    int jump(vector<int>& nums);
+    int hIndex(vector<int>& citations);
 };
 
 

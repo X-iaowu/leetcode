@@ -107,3 +107,49 @@ int Solution::maxprofit2(vector<int> &prices) {
     return profit;
 }
 
+bool Solution::canJump(vector<int> &nums) {
+    int i = 0;
+    int position = 0;
+    for(i = 0;i < nums.size();i++) {
+        if(position >= i) {
+            int step = i + nums[i];
+            if(step > position) position = step;
+        }
+        else {
+            return false;
+        }
+        if(position >= nums.size() - 1) return true;
+    }
+}
+
+int Solution::jump(vector<int> &nums) {
+    if(nums.size() == 1) return 0;
+    int i,j,position;
+    i = 0,j = 0;
+    position = i + nums[i];
+    int step = 1;
+    while(position < nums.size() - 1) {
+        int temp = position;
+        for(j = i + 1;j <= position;j++) {
+            if(j + nums[j] < temp) continue;
+            if(j + nums[j] > temp) temp = j + nums[j];
+        }
+        position = temp;
+        step++;
+    }
+    return step;
+}
+
+int Solution::hIndex(vector<int> &citations) {
+    int h = citations.size();
+    sort(citations.begin(),citations.end());
+    while(1) {
+        if(citations[citations.size() - h] >= h) return h;
+        else {
+            h--;
+        }
+        if(h == 0) break;
+    }
+    return h;
+}
+
