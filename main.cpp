@@ -5,18 +5,15 @@ void test01(Solution& test);
 void test10(Solution& test);
 void test11(Solution& test);
 void test12(Solution& test);
+void test27(Solution& test);
 int main() {
     Solution test;
-    // vector<int> nums = {7,1,5,3,6,4};
-    // int x = test.maxProfit(nums);
-    // cout << x <<endl;
-    // for_each(nums.begin(),nums.end(),[](int element) {
-    //     cout << element << endl;
-    // });
     test01(test);
     test10(test);
     test11(test);
     test12(test);
+    test27(test);
+
     //system("pause");
     return 0;
 }
@@ -40,6 +37,15 @@ void test12(Solution& test) {
     vector<int> nums={1,2,3,4};
     vector<int> answer = test.productExceptSelf(nums);
     for_each(answer.begin(),answer.end(),[](int element) {
+        cout << element << endl;
+    });
+}
+
+void test27(Solution& test){
+    vector<int> numbers = {2, 7, 11, 15};
+    int target = 9;
+    vector<int> twosum = test.twoSum(numbers, target);
+    for_each(twosum.begin(), twosum.end(), [](int element){
         cout << element << endl;
     });
 }

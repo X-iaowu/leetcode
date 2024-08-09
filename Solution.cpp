@@ -167,3 +167,41 @@ vector<int> Solution::productExceptSelf(vector<int> &nums) {
     }
     return answer;
 }
+
+vector<int> Solution::twoSum(vector<int>& numbers, int target){
+    int len = numbers.size();
+    int i,j;
+    j = len - 1;
+    int sum;
+    vector<int> twosum(2,0);
+    for(i = 0;i < len - 1;)
+    {
+        sum = numbers[i] + numbers[j];
+        if(sum == target)
+        {
+            twosum[0] = i + 1;
+            twosum[1] = j + 1;
+            break;
+        }
+        else if(sum < target)
+        {
+            i++;
+        }
+        else
+        {
+            j--;
+        }
+    }
+    return twosum;
+}
+
+int Solution::maxArea(vector<int> &height) {
+    int len = height.size();
+    int i,j;
+    i = 0,j = len - 1;
+    int S = 0;
+    while(i != j)
+    {
+        int curr_S = min(height[i], height[j]) * (j - i);
+    }
+}

@@ -21,6 +21,8 @@ public:
     int jump(vector<int>& nums);
     int hIndex(vector<int>& citations);
     vector<int> productExceptSelf(vector<int>& nums);
+    vector<int> twoSum(vector<int>& numbers, int target);
+    int maxArea(vector<int>& height);
 };
 
 
