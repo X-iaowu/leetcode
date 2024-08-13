@@ -6,13 +6,15 @@ void test10(Solution& test);
 void test11(Solution& test);
 void test12(Solution& test);
 void test27(Solution& test);
+void test28(Solution& test);
 int main() {
     Solution test;
-    test01(test);
-    test10(test);
-    test11(test);
-    test12(test);
-    test27(test);
+//    test01(test);
+//    test10(test);
+//    test11(test);
+//    test12(test);
+//    test27(test);
+    test28(test);
 
     //system("pause");
     return 0;
@@ -48,4 +50,11 @@ void test27(Solution& test){
     for_each(twosum.begin(), twosum.end(), [](int element){
         cout << element << endl;
     });
+}
+
+void test28(Solution& test)
+{
+    vector<int> height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+    int V = test.maxArea(height);
+    cout << V << endl;
 }

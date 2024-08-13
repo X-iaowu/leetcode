@@ -199,9 +199,16 @@ int Solution::maxArea(vector<int> &height) {
     int len = height.size();
     int i,j;
     i = 0,j = len - 1;
-    int S = 0;
+    int V = 0;
     while(i != j)
     {
-        int curr_S = min(height[i], height[j]) * (j - i);
+        int curr_V = min(height[i], height[j]) * (j - i);
+        if(curr_V > V) V = curr_V;
+        height[i] > height[j] ? j-- : i++;
     }
+    return V;
+}
+
+vector<vector<int>> Solution::threesum(vector<int> &nums) {
+
 }
