@@ -210,5 +210,49 @@ int Solution::maxArea(vector<int> &height) {
 }
 
 vector<vector<int>> Solution::threesum(vector<int> &nums) {
-
+    sort(nums.begin(), nums.end());
+    vector<vector<int>> result;
+    int left,right;
+    int threesum;
+    left = 0, right = nums.size() - 1;
+    for(int i = 0;i < nums.size() - 1;i++)
+    {
+        if(i > 0 && nums[i] == nums[i - 1])
+        {
+            continue;
+        }
+        int twosum = 0 - nums[i];
+        for(left = i + 1,right = nums.size() - 1;left < right;)
+        {
+            if(left > i + 1 && nums[left] == nums[left] - 1)
+            {
+                left++;
+                continue;
+            }
+            if(right < nums.size() - 1 && nums[right] == nums[right + 1])
+            {
+                right--;
+                continue;
+            }
+            if(nums[left] + nums[right] > twosum)
+            {
+                right--;
+                continue;
+            }
+            else if(nums[left] + nums[right] < twosum)
+            {
+                left++;
+                continue;
+            }
+            else
+            {
+                vector<int> three(3);
+                three[0] = nums[i],three[1] = nums[left],three[2] = nums[right];
+                result.insert(result.begin(), three);
+                left++;
+                right--;
+            }
+        }
+    }
+    return result;
 }

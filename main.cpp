@@ -7,6 +7,7 @@ void test11(Solution& test);
 void test12(Solution& test);
 void test27(Solution& test);
 void test28(Solution& test);
+void test29(Solution& test);
 int main() {
     Solution test;
 //    test01(test);
@@ -14,8 +15,8 @@ int main() {
 //    test11(test);
 //    test12(test);
 //    test27(test);
-    test28(test);
-
+//    test28(test);
+    test29(test);
     //system("pause");
     return 0;
 }
@@ -57,4 +58,13 @@ void test28(Solution& test)
     vector<int> height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
     int V = test.maxArea(height);
     cout << V << endl;
+}
+
+void test29(Solution& test)
+{
+    vector<int> nums = {-1,0,1,2,-1,-4,-2,-3,3,0,4};
+    vector<vector<int>> result = test.threesum(nums);
+    for_each(result.begin(),result.end(),[](vector<int> element){
+        cout << '[' << element[0] << ',' << element[1] << ',' << element[2] << ']' << endl;
+    });
 }
