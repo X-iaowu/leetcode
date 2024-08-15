@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 #include <algorithm>
 using namespace std;
 #ifndef SOLUTION_H
@@ -26,6 +27,9 @@ public:
     vector<vector<int>> threesum(vector<int>& nums);
     int minSubArrayLen(int target, vector<int>& nums);
     int lengthOfLongestSubstring(string s);
+    bool canConstruct(string ransomNote, string magazine);
+    bool isIsomorphic(string s, string t);
+    bool wordPattern(string pattern, string s);
 };
 
 

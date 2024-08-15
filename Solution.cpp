@@ -2,9 +2,8 @@
 // Created by qiwei2-27267 on 24-7-31.
 //
 
+#include <sstream>
 #include "Solution.h"
-
-#include <algorithm>
 
 void Solution::merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
     vector<int> nums3(m + n,0);
@@ -308,6 +307,82 @@ int Solution::lengthOfLongestSubstring(string s){
     }
     return m;
 }
+
+bool Solution::canConstruct(std::string ransomNote, std::string magazine) {
+    unordered_map<char, int> hash;
+    for(char m:magazine)
+    {
+        if(hash.find(m) != hash.end())//已经存储过
+        {
+            hash.find(m) -> second++;
+        }
+        else
+        {
+            hash.insert(make_pair(m, 1));//加入到哈希表中
+        }
+    }
+    for(char r: ransomNote)
+    {
+        if(hash.find(r) != hash.end() && hash.find(r) -> second > 0)
+        {
+            hash.find(r) -> second--;
+        }
+        else
+            return false;
+    }
+    return true;
+}
+
+bool Solution::isIsomorphic(std::string s, std::string t) {
+    unordered_map<char, char> hash1,hash2;
+    for(int i = 0; i < s.size();i++)
+    {
+        char a = s[i],b = t[i];
+        if(hash1.find(a) != hash1.end() && hash1[a] != b || hash2.find(b) != hash2.end() && hash2[b] != a)
+        {
+            return false;
+        }
+        hash1[a] = b;
+        hash2[b] = a;
+    }
+    return true;
+}
+
+bool Solution::wordPattern(string pattern, string s){
+    unordered_map<char, string> hash1;
+    unordered_map<string, char> hash2;
+    vector<string> word;
+    istringstream ss(s);
+    string temp;
+    while(ss >> temp)
+    {
+        word.push_back(temp);
+    }
+    int i = 0;
+    for(char a : pattern)
+    {
+        if(hash1.find(a) != hash1.end() && hash1[a].compare(word[i]) ||
+            hash2.find(word[i]) != hash2.end() && hash2[word[i]] != a)
+        {
+            return false;
+        }
+        hash1[a] = word[i];
+        hash2[word[i]] = a;
+        i++;
+    }
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

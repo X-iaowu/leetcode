@@ -10,6 +10,8 @@ void test28(Solution& test);
 void test29(Solution& test);
 void test30(Solution& test);
 void test31(Solution& test);
+void test32(Solution& test);
+void test33(Solution& test);
 int main() {
     Solution test;
 //    test01(test);
@@ -19,7 +21,10 @@ int main() {
 //    test27(test);
 //    test28(test);
 //    test29(test);
-    test31(test);
+//    test30(test);
+//    test31(test);
+//    test32(test);
+//    test33(test);
     //system("pause");
     return 0;
 }
@@ -82,5 +87,16 @@ void test31(Solution& test)
 {
     string s = "pwwkew";
     cout << test.lengthOfLongestSubstring(s) << endl;
+}
 
+void test32(Solution& test)
+{
+    string s = "paper",t = "title";
+    cout << test.isIsomorphic(s, t) << endl;
+}
+
+void test33(Solution& test)
+{
+    string pattern = "abba", s = "dog dog dog dog";
+    cout << test.wordPattern(pattern, s) << endl;
 }
