@@ -8,6 +8,7 @@ void test12(Solution& test);
 void test27(Solution& test);
 void test28(Solution& test);
 void test29(Solution& test);
+void test30(Solution& test);
 int main() {
     Solution test;
 //    test01(test);
@@ -16,7 +17,8 @@ int main() {
 //    test12(test);
 //    test27(test);
 //    test28(test);
-    test29(test);
+//    test29(test);
+    test30(test);
     //system("pause");
     return 0;
 }
@@ -67,4 +69,10 @@ void test29(Solution& test)
     for_each(result.begin(),result.end(),[](vector<int> element){
         cout << '[' << element[0] << ',' << element[1] << ',' << element[2] << ']' << endl;
     });
+}
+
+void test30(Solution& test)
+{
+    vector<int> nums = {12,28,83,4,25,26,25,2,25,25,25,12};
+    cout << test.minSubArrayLen(213, nums) << endl;
 }

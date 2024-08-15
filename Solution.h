@@ -24,6 +24,7 @@ public:
     vector<int> twoSum(vector<int>& numbers, int target);
     int maxArea(vector<int>& height);
     vector<vector<int>> threesum(vector<int>& nums);
+    int minSubArrayLen(int target, vector<int>& nums);
 };
 
 
