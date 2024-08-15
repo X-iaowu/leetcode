@@ -280,3 +280,34 @@ int Solution::minSubArrayLen(int target, vector<int> &nums) {
     }
     return ans == INT_MAX ? 0 : ans;
 }
+
+int Solution::lengthOfLongestSubstring(string s){
+    int n = s.size();
+    vector<char> temp(0);
+    int k = 0,flag = 0;
+    int m = 0;
+    while(k < n)
+    {
+        flag = 1;
+        for(int i = temp.size() - 1;i >= 0;i--)
+        {
+            if(s[k] == temp[i])
+            {
+                flag = 0;
+                if(temp.size() >= m) m = temp.size();
+                if(i == 0) temp.erase(temp.begin());
+                else temp.erase(temp.begin(), temp.begin() + i + 1);
+                temp.push_back(s[k]);
+                break;
+            }
+        }
+        if(flag) temp.push_back(s[k]);
+        int len = temp.size();
+        m = max(m, len);
+        k++;
+    }
+    return m;
+}
+
+
+

@@ -25,6 +25,7 @@ public:
     int maxArea(vector<int>& height);
     vector<vector<int>> threesum(vector<int>& nums);
     int minSubArrayLen(int target, vector<int>& nums);
+    int lengthOfLongestSubstring(string s);
 };
 
 
