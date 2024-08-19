@@ -373,7 +373,26 @@ bool Solution::wordPattern(string pattern, string s){
     return true;
 }
 
+bool Solution::isValidSudoku(vector<vector<char>> &board) {
+    int raw[10][10] = {0};
+    int col[10][10] = {0};
+    int box[10][10] = {0};
+    for(int i = 0;i < 9;i++)
+    {
+        for(int j = 0;j < 9;j++)
+        {
+            char c = board[i][j];
+            if(c == '.') continue;
+            int num = c - '0';
+            if(raw[i + 1][num] || col[j + 1][num] || box[j / 3 + (i / 3) * 3][num]) return false;
+            raw[i + 1][num] = 1;
+            col[j + 1][num] = 1;
+            box[j / 3 + (i / 3) * 3][num] = 1;
 
+        }
+    }
+    return true;
+}
 
 
 

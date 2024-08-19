@@ -30,6 +30,7 @@ public:
     bool canConstruct(string ransomNote, string magazine);
     bool isIsomorphic(string s, string t);
     bool wordPattern(string pattern, string s);
+    bool isValidSudoku(vector<vector<char>>& board);
 };
 
 
