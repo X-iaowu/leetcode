@@ -13,6 +13,7 @@ void test31(Solution& test);
 void test32(Solution& test);
 void test33(Solution& test);
 void test34(Solution& test);
+void test35(Solution& test);
 int main() {
     Solution test;
 //    test01(test);
@@ -26,7 +27,8 @@ int main() {
 //    test31(test);
 //    test32(test);
 //    test33(test);
-    test34(test);
+//    test34(test);
+    test35(test);
     //system("pause");
     return 0;
 }
@@ -117,3 +119,22 @@ void test34(Solution& test)
     cout << test.isValidSudoku(board) << endl;
 
 }
+
+void test35(Solution& test)
+{
+    string s = "}";
+    cout << test.isValid(s) << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

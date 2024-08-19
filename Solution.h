@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <stack>
 #include <algorithm>
 using namespace std;
 #ifndef SOLUTION_H
@@ -31,6 +32,8 @@ public:
     bool isIsomorphic(string s, string t);
     bool wordPattern(string pattern, string s);
     bool isValidSudoku(vector<vector<char>>& board);
+    bool isValid(string s);
+    string simplifyPath(string path);
 };
 
 

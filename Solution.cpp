@@ -394,9 +394,38 @@ bool Solution::isValidSudoku(vector<vector<char>> &board) {
     return true;
 }
 
+bool Solution::isValid(string s) {
+    stack<char> std;
+    int len = s.size();
+    int i = 0;
+    while(len--)
+    {
+        char c = s[i];
+        if(c == '(' || c == '[' || c == '{')    std.push(c);
+        else if(c == ')')
+        {
+            if(std.size() > 0 && std.top() == '(')    std.pop();
+            else    return false;
+        }
+        else if(c == ']')
+        {
+            if(std.size() > 0 && std.top() == '[')    std.pop();
+            else    return false;
+        }
+        else
+        {
+            if(std.size() > 0 && std.top() == '{')    std.pop();
+            else    return false;
+        }
+        i++;
+    }
+    if(std.size() == 0) return true;
+    else    return false;
+}
 
+string Solution::simplifyPath(std::string path) {
 
-
+}
 
 
 
