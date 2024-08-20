@@ -14,6 +14,7 @@ void test32(Solution& test);
 void test33(Solution& test);
 void test34(Solution& test);
 void test35(Solution& test);
+void test36(Solution& test);
 int main() {
     Solution test;
 //    test01(test);
@@ -28,7 +29,8 @@ int main() {
 //    test32(test);
 //    test33(test);
 //    test34(test);
-    test35(test);
+//    test35(test);
+    test36(test);
     //system("pause");
     return 0;
 }
@@ -126,7 +128,13 @@ void test35(Solution& test)
     cout << test.isValid(s) << endl;
 }
 
-
+void test36(Solution& test)
+{
+    string path = "/home/user/Documents/../Pictures";
+    cout << test.simplifyPath(path) << endl;
+    path = "/home//foo/";
+    cout << test.simplifyPath(path) << endl;
+}
 
 
 

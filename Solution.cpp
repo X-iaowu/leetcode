@@ -424,7 +424,56 @@ bool Solution::isValid(string s) {
 }
 
 string Solution::simplifyPath(std::string path) {
-
+    // 划分字符串，使用Lambda表达式
+    // []中可以放上下文中定义的参数,(const string& s, char delim)就是参数,vector<string>是返回值,后面就是函数体
+    auto split = [](const string& s, char delim) -> vector<string> {
+        vector<string> ans;
+        string cur;
+        for(char ch : s)
+        {
+            if(ch == delim)
+            {
+                ans.push_back(move(cur));
+                cur.clear();
+            }
+            else
+            {
+                cur += ch;
+            }
+        }
+        // move(obj)函数的功能是把obj当作右值处理，可以应用在对象的移动上
+        ans.push_back(move(cur));
+        return ans;
+    };
+    // 把原路径path根据 / 进行划分
+    vector<string> names = split(path, '/');
+    // 用一个栈来维护路径中的每一个目录名
+    stack<string> st;
+    for(string name : names)
+    {
+        // 如果是 ".." ,就出栈,相当于返回上一级目录
+        if(name == "..")
+        {
+            if(!st.empty())
+                st.pop();
+        }
+        else if(!name.empty() && name != ".")
+        {
+            st.push(move(name));
+        }
+    }
+    string ans;
+    if(st.empty())
+        ans = "/";
+    else
+    {
+        while(!st.empty())
+        {
+            ans.insert(0, '/' + st.top());
+            st.pop();
+        }
+    }
+    return ans;
 }
 
 
