@@ -2,7 +2,6 @@
 // Created by qiwei2-27267 on 24-7-31.
 //
 
-#include <sstream>
 #include "Solution.h"
 
 void Solution::merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
@@ -476,10 +475,35 @@ string Solution::simplifyPath(std::string path) {
     return ans;
 }
 
+// 二叉树的最大深度-深度优先搜索
+int Solution::maxDepth(TreeNode *root) {
+    if(root == nullptr) return 0;
+    return max(maxDepth(root -> left), maxDepth(root -> right)) + 1;
+}
 
+// 判断二叉树是否相同
+bool Solution::isSameTree(TreeNode *p, TreeNode *q) {
+    if(p == nullptr && q == nullptr)    return true;
+    else if(p == nullptr || q == nullptr)   return false;
+    else if(p -> val != q -> val)   return false;
+    else return isSameTree(p -> left, q -> left) && isSameTree(p -> right, q -> right);
+}
 
+// 翻转二叉树
+TreeNode* Solution::invertTree(TreeNode *root) {
+    if(root == nullptr) return nullptr;
+    TreeNode* left = invertTree(root -> left);
+    TreeNode* right = invertTree(root -> right);
+    root -> left = right;
+    root -> right = left;
+    return root;
+}
 
-
-
-
+// 对称二叉树
+bool Solution::isSymmetric(TreeNode *root) {
+    if(root == nullptr) return true;
+    else if(root -> left == nullptr && root -> right == nullptr)    return true;
+    else if(root -> left == nullptr || root -> right == nullptr || root -> left -> val != root -> right -> val)    return false;
+    else return isSymmetric(root -> left) && isSymmetric(root -> right);
+}
 
